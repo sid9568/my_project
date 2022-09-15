@@ -1,0 +1,103 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/sid.css">
+</head>
+
+<body>
+    <div class="main">
+      <nav>
+        <div class="logo">
+        <% @mobiles.each do |mob| %>
+          <h2><%=mob.logo%></h2>
+          
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Phone</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Cart</a></li>
+                
+            </ul>
+        </div>
+
+      </nav> 
+      <div class="inf">
+        <div class="overlay"></div>
+        <img src="<%=mob.image%>" class="mob">
+        
+        <div id="circle">
+          <div class="feature one">
+            <img src="assets/processor.png" alt="">
+            <div>
+              <h1>processor</h1>
+              <p>Spandragon Octa-core 11nm</p>
+            </div>
+          </div>
+          <div class="feature two">
+            <img src="assets/display.png" alt="">
+            <div>
+              <h1>Display</h1>
+              <p>6.5" Mini-Drop Fullscreen
+            </div>
+          </div>
+          <div class="feature three">
+            <img src="assets/camera.png" alt="">
+            <div>
+              <h1>camera</h1>
+              <pt>12MP, Wide Angle Lens</p>
+            </div>
+          </div>
+          <div class="feature four ">
+            <img src="assets/battery.png" alt="">
+            <div>
+              <h1>Bettry Life</h1>
+              <P>5000mAh,720Hrs Standby</P>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="con">
+        <img src="assets/arrow.png" id="upbtn">
+        <h3>Feature</h3>
+        <img src="assets/arrow.png" id="downbtn">
+
+      </div>
+    </div>
+    <%end%>
+  
+
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css"/>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript"> 
+      var circle=document.getElementById("circle");
+      var upbtn=document.getElementById("upbtn");
+      var downbtn=document.getElementById("downbtn");
+
+      var rotateValue = circle.style.transform;
+      var rotateSum;
+
+      upbtn.onclick = function(){
+        rotateSum = rotateValue + "rotate(-90deg)";
+        circle.style.transform = rotateSum;
+        rotateValue = rotateSum;
+
+      }
+      downbtn.onclick = function(){
+        rotateSum = rotateValue + "rotate(90deg)";
+        circle.style.transform = rotateSum;
+        rotateValue = rotateSum;
+
+      }
+
+    </script>
+</body>
+</html>
